@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>DRAWING APP</h1>
+    <section class="tools">
+        <div class="row">
+           <fieldset>
+            <legend>Shapes</legend>
+            <ul class="options">
+                <li class="option active" id="rect">▭ Rectangle</li>
+                <li class="option" id="circle">◯ Circle</li>
+                <li class="option" id="triangle">△ Triangle</li>
+                <li class="option" id="line">╱ Line</li>
+                <li class="option" id="brush">🖌 Draw</li>
+            </ul>
+           </fieldset>
+        </div>
+    </section>
+    <div class="container">
+        <section class="drawing">
+            <canvas width="1200px" height="500px"></canvas>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
