@@ -5,13 +5,15 @@ const body = canvas.querySelector('container');
 
 // ctx.fillStyle = 'aliceblue';
 // ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
 ctx.width = canvas.width;
 ctx.height = canvas.height;
 canvas.style.background = "aliceblue";
 
 let drawing = false;
 var prevMouseX , prevMouseY, stopDrag;
-selectedTool = "";
+selectedTool = "brush";
 
 
 var rect = (e) => {
@@ -65,10 +67,9 @@ const draw = (e) => {
         circle(e);
     }
 
-    else {
+    else if(selectedTool === "triangle") {
         triangle(e);
     }
-
 }
 const start = (e) => {
     drawing = true;
@@ -87,6 +88,7 @@ btns.forEach(btn => {
         //document.write(btn);
     })
 });
+
 
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mousedown', start);
