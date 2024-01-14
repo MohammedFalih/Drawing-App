@@ -1,3 +1,4 @@
+// accessing the element
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 const btns = document.querySelectorAll(".option");
@@ -11,15 +12,18 @@ ctx.width = canvas.width;
 ctx.height = canvas.height;
 canvas.style.background = "aliceblue";
 
+// declaring variables
 let drawing = false;
 var prevMouseX , prevMouseY, stopDrag;
 selectedTool = "brush";
 
-
-var rect = (e) => {
+// function for rectangles
+const rect = (e) => {
     ctx.beginPath();
     ctx.strokeRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
 }
+
+// function for circle
 const circle = (e) => {
     ctx.beginPath();
     let radius = Math.sqrt(Math.pow((prevMouseX - e.offsetX),2) + 
@@ -28,6 +32,7 @@ const circle = (e) => {
     ctx.stroke();
 }
 
+// function for triangle
 const triangle = (e) => {
     ctx.beginPath();
     ctx.moveTo(prevMouseX, prevMouseY);
@@ -36,13 +41,14 @@ const triangle = (e) => {
     ctx.closePath();
     ctx.stroke();
 }
+
+// function to draw line
 const line = (e) => {
     ctx.beginPath();
     ctx.moveTo(e.offsetX, e.offsetY);
     ctx.lineTo(prevMouseX,prevMouseY);
     ctx.stroke();
 }
-
 
 
 const draw = (e) => {
@@ -71,6 +77,8 @@ const draw = (e) => {
         triangle(e);
     }
 }
+
+// function to start drawing
 const start = (e) => {
     drawing = true;
     prevMouseX = e.offsetX;
