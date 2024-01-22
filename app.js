@@ -78,7 +78,7 @@ const draw = (e) => {
     }
 }
 
-// function to start drawing
+// function to start drawing  
 const start = (e) => {
     drawing = true;
     prevMouseX = e.offsetX;
