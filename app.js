@@ -14,7 +14,7 @@ canvas.style.background = "aliceblue";
 
 // declaring variables
 let drawing = false;
-var prevMouseX , prevMouseY, stopDrag;
+var prevMouseX , prevMouseY, imgdata;
 selectedTool = "brush";
 
 // function for rectangles
@@ -54,7 +54,7 @@ const line = (e) => {
 const draw = (e) => {
     if(!drawing) return;
     ctx.lineWidth = "7";
-    ctx.putImageData(stopDrag, 0, 0);
+    ctx.putImageData(imgdata, 0, 0);
     if (selectedTool === "brush"){
         //ctx.beginPath();
         ctx.lineTo(e.offsetX , e.offsetY);
@@ -84,7 +84,7 @@ const start = (e) => {
     prevMouseX = e.offsetX;
     prevMouseY = e.offsetY;
     ctx.beginPath();
-    stopDrag = ctx.getImageData(0, 0, canvas.width, canvas.height)
+    imgdata = ctx.getImageData(0, 0, canvas.width, canvas.height)
 }
 
 btns.forEach(btn => {
